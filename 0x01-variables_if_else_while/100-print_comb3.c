@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 
 /**
  * main - Entry point
@@ -11,9 +10,11 @@ int main(void)
 {
 int x, y;
 
-for (x = 48; x < 57; x++)
+x = 48;
+while (x < 57)
 {
-	for (y = x + 1; y < 58; y++)
+	y = x + 1;
+	while (y < 58)
 	{
 		putchar (x);
 		putchar (y);
@@ -21,7 +22,9 @@ for (x = 48; x < 57; x++)
 			break;
 		putchar (',');
 		putchar (' ');
+		y++;
 	}
+	x++;
 }
 putchar ('\n');
 return (0);
