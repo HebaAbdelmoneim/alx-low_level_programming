@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 /**
  * main - Entry point
@@ -16,6 +17,8 @@ for (x = 48; x < 57; x++)
 	{
 		putchar (x);
 		putchar (y);
+		if (y == 58)
+			break;
 		putchar (',');
 		putchar (' ');
 	}
