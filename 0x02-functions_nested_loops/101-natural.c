@@ -1,22 +1,22 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * multiples_of_three_or_five- computes
+ * main - computes
  * and prints the sum of all the multiples of 3 or 5 below 1024
  *
  *
- * Return: multiples
+ * Return: Always 0 (Success)
  *
  */
-void multiples_of_three_or_five(void)
+int main(void)
 {
 	int i, sum = 0;
 
-	for (i = 1; i < 1024; i++)
+	for (i = 0; i < 1024; i++)
 	{
 		if ((i % 3 == 0) || (i % 5 == 0))
 			sum = sum + i;
 	}
-	printf("%d", sum);
-	printf("\n");
+	printf("%d\n", sum);
+	return (0);
 }
