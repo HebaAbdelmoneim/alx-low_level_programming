@@ -24,7 +24,7 @@ void print_times_table(int n)
 					_putchar(((prodc / 100) % 10) + 48);
 					_putchar((prodc % 10) + 48);
 				}
-				else if ((prodc / 10) != 0 && (prodc / 100) == 0)
+				else if (((prodc / 10) != 0) && ((prodc / 100) == 0))
 				{
 					_putchar(' ');
 					_putchar((prodc / 10) + 48);
@@ -33,8 +33,10 @@ void print_times_table(int n)
 				else
 				{
 					if (j != 0)
-					_putchar(' ');
-					_putchar(' ');
+					{
+						_putchar(' ');
+						_putchar(' ');
+					}
 					_putchar((prodc % 10) + 48);
 				}
 				if (j == n)
