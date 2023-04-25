@@ -30,8 +30,7 @@ void jack_bauer(void)
 			m += 1;
 			if (h == 23 && m == 60)
 			{
-				m = 00;
-				h = 00;
+				break;
 			}
 		}
 	}
