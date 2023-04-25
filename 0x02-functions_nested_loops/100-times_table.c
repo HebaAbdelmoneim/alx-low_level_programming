@@ -26,10 +26,11 @@ void print_times_table(int n)
 					_putchar(' ');
 				if (prodc <= 99)
 					_putchar(' ');
+
 				if (prodc >= 100)
 				{
 					_putchar((prodc / 100) + 48);
-					_putchar(((prodc / 100) % 10) + 48);
+					_putchar(((prodc / 10) % 10) + 48);
 				}
 				else if (prodc <= 99 && prodc >= 10)
 				{
