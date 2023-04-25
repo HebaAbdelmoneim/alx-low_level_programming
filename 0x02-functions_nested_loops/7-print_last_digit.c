@@ -4,22 +4,21 @@
  *
  * @n: the number that the code get its last digit
  *
- * Return: On success last digit of n.
+ * Return: last digit of number
  *
  */
 int print_last_digit(int n)
 {
-	int abs, r;
+	int r;
 
 	if (n >= 0)
 	{
-		abs = n;
+		r = n % 10;
 	}
 	else
 	{
-		abs = n * -1;
+		r = -1 * (n % 10);
 	}
-	r = abs % 10;
 	_putchar('0' + r);
 	return (r);
 }
