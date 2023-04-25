@@ -10,7 +10,7 @@
  */
 void multiples_of_three_or_five(void)
 {
-	int i, sum;
+	int i, sum = 0;
 
 	for (i = 1; i < 1024; i++)
 	{
