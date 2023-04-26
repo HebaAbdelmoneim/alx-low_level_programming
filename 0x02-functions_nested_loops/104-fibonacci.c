@@ -19,7 +19,7 @@ int num_length(int n)
 		n = n / 10;
 		count += 1;
 	}
-	return (n);
+	return (count);
 }
 
 /**
