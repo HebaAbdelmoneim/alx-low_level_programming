@@ -11,10 +11,7 @@ int num_length(int n)
 {
 	int count = 0;
 
-	if (!n)
-		return (1);
-
-	while (n)
+	while (n != 0)
 	{
 		n = n / 10;
 		count += 1;
@@ -31,8 +28,8 @@ int num_length(int n)
 int main(void)
 {
 	int i, length;
-	unsigned long n1p1 = 1, n2p1 = 2, n1p2 = 0, n2p2 = 0;
-	unsigned long scale = 100000000, num1 = 0, num2 = 0;
+	unsigned long int n1p1 = 1, n2p1 = 2, n1p2 = 0, n2p2 = 0;
+	unsigned long int scale = 100000000, num1 = 0, num2 = 0;
 
 	for (i = 1; i <= 98; i++)
 	{
