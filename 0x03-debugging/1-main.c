@@ -14,7 +14,7 @@ int main(void)
 	i = 0;
 
 	while (i < 10)
-	{/* The while loop need to increment i */
+	{/* The while loop need to increment i and a break statment before print */
 		putchar(i);
 	}
 
