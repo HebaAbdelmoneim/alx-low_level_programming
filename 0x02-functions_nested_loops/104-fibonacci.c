@@ -53,11 +53,10 @@ int main(void)
 		n2p1 = num1;
 		n2p2 = num2;
 
-		if (i == 99)
-			break;
-		printf(", ");
+		if (i != 98)
+			printf(", ");
+		else
+			printf("\n");
 	}
-	printf("\n");
-
 	return (0);
 }
