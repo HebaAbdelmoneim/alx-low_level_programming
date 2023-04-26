@@ -10,6 +10,7 @@
 int num_length(int n)
 {
 	int count = 0;
+
 	if (!n)
 		return (1);
 
