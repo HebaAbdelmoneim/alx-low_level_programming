@@ -10,7 +10,7 @@ int main(void)
 {
 	int i, j;
 	long int feb[60];
-	long int sum = 1;
+	long int sum = 0;
 
 	feb[0] = 1;
 	feb[1] = 2;
@@ -22,7 +22,7 @@ int main(void)
 	{
 		if (feb[j] < 4000000)
 		{
-			if (((feb[j] % 10) % 2) != 0)
+			if ((feb[j] % 2) == 0)
 				sum += feb[j];
 		}
 	}
