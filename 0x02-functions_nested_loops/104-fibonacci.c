@@ -5,20 +5,45 @@
  *
  * Return: Always 0 (Success)
  */
+int num_length(int n)
+{
+	int count = 0;
 
+	while(n != 0)
+	{
+		n = n / 10;
+		count++;
+	}
+	return (n);
+}
 int main(void)
 {
-	int i;
-	unsigned long num1 = 1, num2 = 2;
-
-	printf("%lu, %lu, ", num1, num2);
-	for (i = 2; i < 50; i++)
+	int i, length;
+	unsigned long int n1p1 = 1, n2p1 = 2, n1p2 = 0, n2p2 = 0, scale = 100000000, num1 = 0, num2 = 0;
+	
+	for (i = 1; i <= 98; i++)
 	{
-		num1 += num2;
-		printf("%lu, ", num1);
-		num2 += num1;
-		printf("%lu", num2);
-		if (i == 49)
+		if (n1p2 >0)
+			printf("%lu", n1p2);
+		length = num_length(scale) - 1 - num_length(n1p1);
+
+		while ((n1p2 > 0) && (length > 0))
+		{
+			printf("%d", 0);
+			length--;
+		}
+
+		printf("%lu", n1p1);
+
+		num1 = (n1p1 + n2p1) % scale;
+		num2 = n1p2 + n2p2 + ((n1p1 + n2p1) / scale);
+
+		n1p1 = n2p1;
+		n1p2 = n2p2;
+		n2p1 = num1;
+		n2p2 = num2;
+
+		if (i == 98)
 			break;
 		printf(", ");
 	}
