@@ -10,31 +10,27 @@
 
 double _sqr(double a)
 {
-    
 	double i = 0;
 	double j = a / 2;
 
-	while (j != i) 
+	while (j != i)
 	{
 		i = j;
 		j = (a / i + i) / 2;
 	}
-  
-	return j;
+	return (j);
 }
-
 /**
  * largest_prime - print the largest prime factor
  *
- *@num: input parameter
+ *@n: input parameter
  *
  * Return: void
  */
 
-void largest_prime(long int num)
+void largest_prime(long int n)
 {
 	int l_p, p_n;
-	long int n = num;
 
 	while (n % 2 == 0)
 	{
@@ -53,7 +49,7 @@ void largest_prime(long int num)
 	if (n > 2)
 		l_p = n;
 
-	printf("%d \n", l_p);
+	printf("%d\n", l_p);
 }
 
 /**
