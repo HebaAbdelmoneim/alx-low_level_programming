@@ -8,11 +8,12 @@
 
 int main(void)
 {
-	long int x = 612852475143;
-	unsigned long int res;
+/*	long int x = 612852475143;*/
+	int i = 4019;
+/*	unsigned long int res;*/
 
-	res = x / 3;
+	/*res = x / 3;*/
 /*	res = res / 4019;*/
-	printf("%lu \n", res);
+	printf("%d \n", i);
 	return (0);
 }
