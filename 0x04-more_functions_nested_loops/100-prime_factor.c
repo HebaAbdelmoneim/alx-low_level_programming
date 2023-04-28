@@ -1,5 +1,27 @@
 #include <stdio.h>
-#include <math.h>
+
+/**
+ * _sqr - calculate the square mean root of the input
+ *
+ *@a: input parameter
+ *
+ * Return: the sqr value
+ */
+
+double _sqr(double a)
+{
+    
+	double i = 0;
+	double j = a / 2;
+
+	while (j != i) 
+	{
+		i = j;
+		j = (a / i + i) / 2;
+	}
+  
+	return j;
+}
 
 /**
  * largest_prime - print the largest prime factor
@@ -19,7 +41,7 @@ void largest_prime(long int num)
 		n = n / 2;
 	}
 
-	for (p_n = 3; p_n <= sqrt(n); p_n += 2)
+	for (p_n = 3; p_n <= _sqr(n); p_n += 2)
 	{
 		while (n % p_n == 0)
 		{
