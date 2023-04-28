@@ -19,8 +19,10 @@ void print_number(int n)
 	else
 	{
 		i = -1 * n;
-		_putchar(45);
+		_putchar('-');
 	}
+	if (i / 10000 > 0)
+		print_number(i / 1000);
 
 	if (i / 1000)
 	{
