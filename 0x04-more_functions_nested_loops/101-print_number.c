@@ -21,29 +21,10 @@ void print_number(int n)
 		i = -1 * n;
 		_putchar('-');
 	}
-	if (i / 10000 > 0)
-		print_number(i / 1000);
 
-	if (i / 1000)
-	{
-		_putchar((i / 1000) + 48);
-		_putchar(((i / 100) % 10) + 48);
-		_putchar(((i % 100) / 10) + 48);
-		_putchar((i % 10) + 48);
-	}
-	else if (i / 100)
-	{
-		_putchar((i / 100) + 48);
-		_putchar(((i % 100) / 10) + 48);
-		_putchar((i % 10) + 48);
-	}
-	else if (i / 10)
-	{
-		_putchar((i / 10) + 48);
-		_putchar((i % 10) + 48);
-	}
-	else
-	{
-		_putchar(i + 48);
-	}
+	if ((i / 10) > 0)
+		print_number (i / 10);
+
+
+	_putchar((i % 10) + 48);
 }
