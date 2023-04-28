@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 /**
  * main - Entry point
@@ -8,12 +9,27 @@
 
 int main(void)
 {
-/*	long int x = 612852475143;*/
-	int i = 4019;
-/*	unsigned long int res;*/
+	int largest_prime, p_n;
+	long int n = 612852475143;
 
-	/*res = x / 3;*/
-/*	res = res / 4019;*/
-	printf("%d \n", i);
+	while (n % 2 == 0)
+	{
+		n = n / 2;
+	}
+
+	for (p_n = 3; p_n <= sqrt(n); p_n += 2)
+	{
+		while (n % p_n == 0)
+		{
+			n = n / p_n;
+			largest_prime = p_n;
+		}
+	}
+
+	if (n > 2)
+		largest_prime = n;
+
+	printf("%d \n", largest_prime);
+
 	return (0);
 }
