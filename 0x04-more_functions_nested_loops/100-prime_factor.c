@@ -2,15 +2,17 @@
 #include <math.h>
 
 /**
- * main - Entry point
+ * largest_prime - print the largest prime factor
  *
- * Return: Always 0 (Success)
+ *@num: input parameter
+ *
+ * Return: void
  */
 
-int main(void)
+void largest_prime(long int num)
 {
-	int largest_prime, p_n;
-	long int n = 612852475143;
+	int l_p, p_n;
+	long int n = num;
 
 	while (n % 2 == 0)
 	{
@@ -22,14 +24,24 @@ int main(void)
 		while (n % p_n == 0)
 		{
 			n = n / p_n;
-			largest_prime = p_n;
+			l_p = p_n;
 		}
 	}
 
 	if (n > 2)
-		largest_prime = n;
+		l_p = n;
 
-	printf("%d \n", largest_prime);
+	printf("%d \n", l_p);
+}
 
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+
+int main(void)
+{
+	largest_prime(612852475143);
 	return (0);
 }
