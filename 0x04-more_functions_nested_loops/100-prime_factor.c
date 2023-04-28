@@ -12,7 +12,7 @@ int main(void)
 	unsigned long int res;
 
 	res = x / 3;
-	res = res / 4019;
+/*	res = res / 4019;*/
 	printf("%lu \n", res);
 	return (0);
 }
