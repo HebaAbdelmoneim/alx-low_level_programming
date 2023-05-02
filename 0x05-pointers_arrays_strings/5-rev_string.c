@@ -17,7 +17,7 @@ void rev_string(char *s)
 	sw1 = s;
 	sw2 = s + max - 1;
 
-	for (i = 0; i < (max - 1)/ 2; i++)
+	for (i = 0; i < (max - 1) / 2; i++)
 	{
 		rev = *sw2;
 		*sw2 = *sw1;
