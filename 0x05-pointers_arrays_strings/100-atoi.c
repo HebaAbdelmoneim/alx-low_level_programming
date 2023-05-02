@@ -11,7 +11,7 @@
 int _atoi(char *s)
 {
 	int length, i, digit, sign = 0, no;
-	unsigned oint = 0;
+	unsigned int oint = 0;
 	char prev;
 
 	length = strlen(s);
