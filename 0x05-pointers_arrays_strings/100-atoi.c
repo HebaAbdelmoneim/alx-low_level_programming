@@ -10,7 +10,8 @@
 
 int _atoi(char *s)
 {
-	int length, i, digit, oint = 0, sign = 0;
+	int length, i, digit, sign = 0, no;
+	unsigned oint = 0;
 	char prev;
 
 	length = strlen(s);
@@ -29,7 +30,9 @@ int _atoi(char *s)
 			break;
 	}
 	if (sign % 2 != 0)
-		oint *= -1;
-	return (oint);
+		no = -1 * oint;
+	else
+		no = oint;
+	return (no);
 }
 
