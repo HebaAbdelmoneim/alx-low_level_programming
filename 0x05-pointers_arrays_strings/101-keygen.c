@@ -14,7 +14,7 @@ int main(void)
     char L[] = "ABCDEFGHIJKLMNOQPRSTUYWVZX";
     char no[] = "0123456789";
     char ch[] = "!@#$%^&*+-?&";
-    char pw [10];
+    char pw [15];
 
     srand(time(0));
     n = rand() % 4;
