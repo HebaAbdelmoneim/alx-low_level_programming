@@ -18,11 +18,9 @@ int _strcmp(char *s1, char *s2)
 	s1_len = strlen(s1);
 	s2_len = strlen(s2);
 
-	if (s1_len - s2_len > 0)
-		res = 1;
-	else if (s1_len - s2_len < 0)
-		res = -1;
-	else
+	if (s1_len - s2_len == 0)
 		res = 0;
+	else
+		res = *s1 - *s2;
 	return (res);
 }
