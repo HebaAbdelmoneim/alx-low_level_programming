@@ -46,31 +46,34 @@ void print_buffer(char *b, int size)
 	int i, ot, st, cd;
 
 	ot = size % 10;
-	if (size <= 0)
-		printf("\n");
-	for (i = 0; i < size; i++)
+	if (size > 0)
 	{
-		if (i % 10 == 0)
-			printf("%08x: ", i);
-		if (i % 2 == 0)
-			printf("%02x%02x ", b[i], b[i + 1]);
-		if ((i + 1) % 10 == 0)
+		for (i = 0; i < size; i++)
 		{
-			st = i - 9;
-			cd = i;
-			print_buffer_string(b, st, cd);
-		}
-		else if (i == size - 1)
-		{
-			st = i - ot + 1;
-			cd = size - 1;
-			while (ot != 10)
+			if (i % 10 == 0)
+				printf("%08x: ", i);
+			if (i % 2 == 0)
+				printf("%02x%02x ", b[i], b[i + 1]);
+			if ((i + 1) % 10 == 0)
 			{
-				printf("  ");
-				ot++;
+				st = i - 9;
+				cd = i;
+				print_buffer_string(b, st, cd);
 			}
-			printf("  ");
-			print_buffer_string(b, st, cd);
+			else if (i == size - 1)
+			{
+				st = i - ot + 1;
+				cd = size - 1;
+				while (ot != 10)
+				{
+					printf("  ");
+					ot++;
+				}
+				printf("  ");
+				print_buffer_string(b, st, cd);
+			}
 		}
 	}
+	else
+		printf("\n");
 }
