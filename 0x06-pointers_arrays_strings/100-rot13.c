@@ -18,7 +18,7 @@ char *rot13(char *str)
 	while (*str != '\0')
 	{
 		n = 1;
-		while (*str >= 65 && *str <= 122 && n == 1)
+		while (((*str >= 65 && *str <= 90) || (*str >= 97 && *str <= 122)) && n == 1)
 		{
 			if ((*str >= 65 && *str <= 77) || (*str >= 97 && *str <= 109))
 				*str += 13;
