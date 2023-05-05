@@ -57,12 +57,22 @@ void print_buffer(char *b, int size)
 			{
 				st = i - ot + 1;
 				cd = size - 1;
-				while (ot != 10)
+				if (ot % 2 == 0)
 				{
-					printf("  ");
-					ot++;
+					while (ot < 10)
+					{
+						printf("     ");
+						ot+=2;
+					}
 				}
-				printf("  ");
+				else
+				{
+					while (ot < 9)
+                                        {
+                                                printf("     ");
+                                                ot+=2;
+                                        }
+				}
 				print_buffer_string(b, st, cd);
 			}
 		}
