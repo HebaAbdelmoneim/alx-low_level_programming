@@ -23,9 +23,9 @@ char *rot13(char *str)
 			if ((*str >= 65 && *str <= 77) || (*str >= 97 && *str <= 109))
 				*str += 13;
 			/*else
-			*	*str -= 13;
-			*n = 0;
-			*/
+			*str -= 13;*/
+			n = 0;
+			
 		}
 		str++;
 	}
