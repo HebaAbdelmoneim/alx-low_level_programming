@@ -12,20 +12,20 @@
 char *rot13(char *str)
 {
 	char *dest;
-	int n;
+	char o[52] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char c[52] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	int i;
 
 	dest = str;
 	while (*str != '\0')
 	{
-		n = 1;
-		while (((*str >= 65 && *str <= 90) || (*str >= 97 && *str <= 122)) && n == 1)
+		for (i = 0; i < 52; i++)
 		{
-			if ((*str >= 65 && *str <= 77) || (*str >= 97 && *str <= 109))
-				*str += 13;
-			/*else
-			*str -= 13;*/
-			n = 0;
-			
+			if (*str == o[i])
+			{
+				*str = c[i];
+				break;
+			}
 		}
 		str++;
 	}
