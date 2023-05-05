@@ -15,69 +15,41 @@
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int max, min, n1_len, n2_len, i, dif, sum, j = 0, check = 0, rem = 0;
-	char res;
+	int max, i, sum, j, k, d1, d2, rem = 0;
 
-	n1_len = strlen(n1);
-	n2_len = strlen(n2);
-
-	if (n1_len >= n2_len)
-	{
-		max = n1_len + 1;
-		min = n2_len + 1;
-		check = 1;
-	}
+	j = strlen(n1);
+	k = strlen(n2);
+	if (j >= k)
+		max = j;
 	else
-	{
-		max = n2_len + 1;
-		min = n1_len + 1;
-		check = -1;
-	}
+		max = k;
 
-	if (size_r <= max)
+	if (size_r < max + 1)
 		return (0);
-	for (i = size_r - 2; i >= 0; i--)
+	r[max] = '\0';
+	for (i = max - 1; i >= 0; i--)
 	{
-		if (max - j - 2 >= 0)
-		{
-			if (max == min)
-				sum = (*(n1 + max - j - 2) - 48) + (*(n2 + max - j - 2) - 48) + rem;
-			else if (check == 1)
-			{
-				if ((n2_len - j - 1) >= 0)
-					sum = (*(n1 + max - j - 2) - 48) + (*(n2 + n2_len - j - 1) - 48) + rem;
-				else
-					sum = (*(n1 + max - j - 2) - 48) + rem;
-			}
-			else if (check == -1)
-			{
-				if ((n1_len - j - 1) >= 0)
-					sum = (*(n1 + n1_len - j - 1) - 48) + (*(n2 + max - j - 2) - 48) + rem;
-				else
-					sum = (*(n2 + max - j - 2) - 48) + rem;
-			}
-			if ((sum / 10) == 0)
-			{
-				res = (sum + 48);
-				rem = 0;
-			}
-			else
-			{
-				rem = sum / 10;
-				res  = ((sum % 10) + 48);
-			}
-			*(r + i) = res;
-		}
+		j--;
+		k--;
+		if (j >= 0)
+			d1 = n1[j] - 48;
 		else
-		{
-			*(r + i) = rem + 48;
-		}
-		j++;
+			d1 = 0;
+		if (k >= 0)
+			d2 = n2[k] - 48;
+		else
+			d2 = 0;
+		sum = d1 + d2 + rem;
+		r[i] = ((sum % 10) + 48);
+			rem = sum / 10;
 	}
-/*	s = strlen(r);
-*	if (s > size_r)
-*		return (0);
-*		*/
-	dif = size_r - max;
-	return (r + dif - 1);
-}
+	if (rem == 1)
+	{
+		r[max + 1] = '\0';
+		if ((max + 2) > size_r)
+			return (0);
+		while (max-- >= 0)
+			r[max + 1] = r[max];
+		r[0] = rem + 48;
+	}
+	return (r); }
