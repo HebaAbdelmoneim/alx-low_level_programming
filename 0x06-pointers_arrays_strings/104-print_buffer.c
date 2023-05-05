@@ -13,21 +13,14 @@
 
 void print_buffer_string(char *x, int st1, int cd1)
 {
-	int j, k, check;
-	char ch[] = {'\n', '\0', '\t', '\1', '\2', '\3', '\4', '\5', '\6', '\7'};
+	int k;
 
 	for (k = st1; k <= cd1; k++)
 	{
-		check = 0;
-		for (j = 0; j < 10; j++)
-		{
-			if (x[k] == ch[j])
-				check = 1;
-		}
-		if (check == 1)
-			printf("%c", '.');
-		else
+		if (x[k] >= 32 && x[k] <= 126)
 			printf("%c", x[k]);
+		else
+			printf("%c", '.');
 	}
 	printf("\n");
 }
