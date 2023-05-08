@@ -12,23 +12,25 @@
 
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int j, k, len_s, len_a, count;
+	unsigned int j, k, len_a, check;
 
 	j = k = 0;
-	count = 0;
-	len_s = strlen(s);
+	check = 0;
 	len_a = strlen(accept);
 
-	while (j <= len_s / 2)
+	while (s[j] != '\0')
 	{
+		check = 0;
 		k = 0;
 		while (k <= len_a)
 		{
 			if (*(s + j) == *(accept + k))
-				count++;
+				check = 1;
+			if (*(accept + k) == '\0' && check == 0)
+				return (j);
 			k++;
 		}
 		j++;
 	}
-	return (count);
+	return (j);
 }
