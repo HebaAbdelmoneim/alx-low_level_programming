@@ -8,6 +8,7 @@
  *
  * Return: Always 0.
  */
+
 int main(int argc, char *argv[])
 {
 	int sum, i;
@@ -16,7 +17,7 @@ int main(int argc, char *argv[])
 	{
 		for (i = 1; i < argc; i++)
 		{
-			if (atoi(argv[i]) != 0)
+			if (atoi(argv[i]) > 0)
 			{
 				sum += atoi(argv[i]);
 			}
