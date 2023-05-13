@@ -20,17 +20,17 @@ int main(int argc, char *argv[])
 		{
 			nm = argv[i];
 
-			if (*nm < '0' || *nm > '9')
+			if (*nm >= '0' && *nm <= '9')
+			{
+				sum += atoi(argv[i]);
+			}
+			else
 			{
 				printf("Error\n");
 				return (1);
 			}
-			else
-			{
-				sum += atoi(argv[i]);
-			}
 		}
 	}
-		printf("%d\n", sum);
-		return (0);
+	printf("%d\n", sum);
+	return (0);
 }
