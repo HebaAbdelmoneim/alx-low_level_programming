@@ -13,7 +13,7 @@ int get_change(int val)
 {
 	int change = 0;
 
-	while (val)
+	while (val >= 0)
 	{
 		if (val % 25 == 0)
 		{
