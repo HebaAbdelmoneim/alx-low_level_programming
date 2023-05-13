@@ -1,5 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+
+/**
+ * check_didgit - check if the string is digits
+ *@s: array of arg string
+ *
+ * Return: Always 0 on success.
+ * 1 on fail.
+ */
+
+int check_didgit(char *s)
+{
+	int j = 0;
+
+	while (s[j] != '\0')
+	{
+		if (!isdigit(s[j]))
+			return (0);
+		j++;
+	}
+	return (1);
+}
 
 /**
  * main - adds positive numbers
@@ -8,19 +30,15 @@
  *
  * Return: Always 0.
  */
-
 int main(int argc, char *argv[])
 {
 	int sum = 0, i;
-	char *nm;
 
 	if (argc > 1)
 	{
 		for (i = 1; i < argc; i++)
 		{
-			nm = argv[i];
-
-			if (*nm >= '0' && *nm <= '9')
+			if (check_didgit(argv[i]))
 			{
 				sum += atoi(argv[i]);
 			}
@@ -34,3 +52,4 @@ int main(int argc, char *argv[])
 	printf("%d\n", sum);
 	return (0);
 }
+
