@@ -61,14 +61,11 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (1);
 	}
+	val = atoi(argv[1]);
+	if (val < 0)
+		printf("0\n");
 	else
-	{
-		val = atoi(argv[1]);
-		if (val < 0)
-			printf("0\n");
-		else
-			printf("%i\n", get_change(val));
-		return (0);
-	}
+		printf("%i\n", get_change(val));
+	return (0);
 }
 
