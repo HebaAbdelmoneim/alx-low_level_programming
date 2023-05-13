@@ -48,23 +48,27 @@ int get_change(int val)
  *@argc: arg numbers
  *@argv: array of arg string
  *
- * Return: Always 0.
+ *Return: Always 0 on success.
+ *1 on fail.
  */
 
 int main(int argc, char *argv[])
 {
 	int val = 0;
 
-	if (argc == 2)
+	if (argc != 2)
+	{
+		printf("Error\n");
+		return (1);
+	}
+	else
 	{
 		val = atoi(argv[1]);
 		if (val < 0)
 			printf("0\n");
 		else
-			printf("%d\n", get_change(val));
+			printf("%i\n", get_change(val));
 		return (0);
 	}
-	printf("Error\n");
-	return (1);
 }
 
