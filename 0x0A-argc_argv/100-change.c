@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
 		val = atoi(argv[1]);
 		if (val < 0)
 		{
-			printf("Error\n");
+			printf("0\n");
 			return (0);
 		}
 		else
