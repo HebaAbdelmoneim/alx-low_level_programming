@@ -59,15 +59,10 @@ int main(int argc, char *argv[])
 	{
 		val = atoi(argv[1]);
 		if (val < 0)
-		{
 			printf("0\n");
-			return (0);
-		}
 		else
-		{
-			printf("%i\n", get_change(val));
-			return (0);
-		}
+			printf("%d\n", get_change(val));
+		return (0);
 	}
 	printf("Error\n");
 	return (1);
