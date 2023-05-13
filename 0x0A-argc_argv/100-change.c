@@ -13,29 +13,29 @@ int get_change(int val)
 {
 	int change = 0;
 
-	while (val >= 0)
+	while (val)
 	{
-		if (val % 25 == 0)
+		if (val >= 25)
 		{
 			change++;
 			val -= 25;
 		}
-		else if (val % 10 == 0)
+		else if (val >= 10)
 		{
 			change++;
 			val -= 10;
 		}
-		else if (val % 5 == 0)
+		else if (val >= 5)
 		{
 			change++;
 			val -= 5;
 		}
-		else if (val % 2 == 0)
+		else if (val >= 2)
 		{
 			change++;
 			val -= 2;
 		}
-		else if (val % 1 == 0)
+		else if (val == 1)
 		{
 			change++;
 			val -= 1;
