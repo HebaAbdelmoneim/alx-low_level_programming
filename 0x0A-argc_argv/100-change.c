@@ -3,7 +3,7 @@
 #include <string.h>
 
 /**
- * check_didgit - calculate the change
+ * get_change - calculate the change
  *@val: integer input
  *
  * Return: integer value of the change
