@@ -20,7 +20,7 @@ char *argstostr(int ac, char **av)
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
-	ar = malloc(ac * sizeof(**av));
+	ar = malloc(ac * sizeof(*av));
 	for (i = 0; i < ac; i++)
 	{
 		width = strlen(av[i]);
