@@ -4,6 +4,26 @@
 #include <string.h>
 
 /**
+ * get_size - count char in av
+ * @ac: arg numbers
+ * @av: arg array
+ *
+ * Return: integer the size
+ */
+
+int get_size(int ac, char **av)
+{
+        int s, i;
+
+	s = 0;
+	for (i = 0; i < ac; i++)
+	{
+		s+= strlen(av[i]);
+	}
+        return (s + 1);
+}
+
+/**
  * argstostr - concatenates all the arguments of your program
  * @ac: arg numbers
  * @av: arg array
@@ -13,14 +33,15 @@
 
 char *argstostr(int ac, char **av)
 {
-	int i, j, width, count;
+	int i, j, width, count, s;
 	char *ar;
 
 	count = 0;
+	s = get_size(ac, av);
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
-	ar = malloc((ac + 1) * sizeof(char));
+	ar = malloc(s * sizeof(char));
 	for (i = 0; i < ac; i++)
 	{
 		width = strlen(av[i]);
