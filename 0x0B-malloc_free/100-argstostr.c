@@ -20,9 +20,8 @@ int get_size(int ac, char **av)
 	{
 		s+= strlen(av[i]);
 	}
-        return (s + 1);
+        return (s + 1 + ac);
 }
-
 /**
  * argstostr - concatenates all the arguments of your program
  * @ac: arg numbers
