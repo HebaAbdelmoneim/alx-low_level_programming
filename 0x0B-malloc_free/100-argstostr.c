@@ -13,14 +13,15 @@
 
 int get_size(int ac, char **av)
 {
-        int s, i;
+	int s, i;
 
 	s = 0;
 	for (i = 0; i < ac; i++)
 	{
-		s+= strlen(av[i]);
+		s += strlen(av[i]);
 	}
-        return (s + 1 + ac);
+	s += 1 + ac;
+	return (s);
 }
 /**
  * argstostr - concatenates all the arguments of your program
