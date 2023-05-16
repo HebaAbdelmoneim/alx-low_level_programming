@@ -21,7 +21,6 @@ char *argstostr(int ac, char **av)
 	for (i = 0; i < ac; i++)
 	{
 		width = strlen(av[i]);
-		printf("width = %i\n", width);
 		for (j = 0; j < width; j++)
 		{
 			ar[count] = av[i][j];
