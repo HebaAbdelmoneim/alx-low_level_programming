@@ -16,16 +16,16 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *ar;
 	unsigned int ln1, ln2, nn, size, i;
 
+	if (s1 == NULL)
+		s1 = "\0";
+	if (s2 == NULL)
+		s2 = "\0";
 	ln1 = strlen(s1);
 	ln2 = strlen(s2);
 	if (n >= ln2)
 		nn = ln2;
 	else
 		nn = n;
-	if (s1 == NULL)
-		s1 = "\0";
-	if (s2 == NULL)
-		s2 = "\0";
 	size = ln1 + nn;
 	ar = malloc(size + 1);
 	if (ar == NULL)
