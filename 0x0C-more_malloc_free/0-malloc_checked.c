@@ -16,6 +16,6 @@ void *malloc_checked(unsigned int b)
 
 	ar = calloc(1, b);
 	if (ar == NULL)
-		exit (98);
+		exit(98);
 	return (ar);
 }
