@@ -5,7 +5,7 @@
 
 /**
  * set_mem - intialize the array
- * @ar: array 
+ * @ar: array
  * @c: the itialization value
  * @size: array size
  *
