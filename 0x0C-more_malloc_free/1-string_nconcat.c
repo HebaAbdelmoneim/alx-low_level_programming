@@ -35,10 +35,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 			c[i] = s1[i];
 		else
 			c[i] = s2[i - ln1];
-		if (c == NULL)
+		if (c == 0)
 			return (NULL);
 	}
-	c[i] = '\0';
 	return (c);
 }
 
