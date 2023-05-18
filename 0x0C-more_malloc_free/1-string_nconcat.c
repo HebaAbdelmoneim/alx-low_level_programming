@@ -31,14 +31,14 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	c = malloc(size);
 	for (i = 0; i < (size - 1); i++)
 	{
+		if (c == NULL)
+			return (NULL);
 		if (i < ln1)
 			c[i] = s1[i];
 		else
 			c[i] = s2[i - ln1];
 	}
 	c[i] = '\0';
-	if (c == 0)
-		return (NULL);
 	return (c);
 }
 
