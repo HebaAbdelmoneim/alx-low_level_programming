@@ -69,7 +69,7 @@ int main(int ac, char *av[])
 
 	if (ac != 3)
 	{
-		_print("Error\n");
+		_print("Error ");
 		exit(98);
 	}
 	res = num(av);
