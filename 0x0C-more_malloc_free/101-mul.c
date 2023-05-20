@@ -45,7 +45,7 @@ int _atoi(char *s)
  *
  * Return: void
  */
-void _print_int(int i)
+void _print_int(unsigned long int i)
 {
 	int d = 1, j, digit;
 
