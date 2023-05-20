@@ -73,8 +73,7 @@ int main(int ac, char *av[])
 		exit(98);
 	}
 	res = num(av);
-	_print_int(res);
-	_putchar('\n');
+	printf("%lu\n", res);
 	return (0);
 }
 
