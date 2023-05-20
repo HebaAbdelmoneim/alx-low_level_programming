@@ -12,7 +12,7 @@
  * Return: integer of the input char
  */
 
-int _atoi(char *s)
+int _atoi(const char *s)
 {
 	int sign = 1;
 	unsigned long int oint = 0, i, length;
@@ -25,8 +25,8 @@ int _atoi(char *s)
 
 	for (i = length; (s[i] >= 48 && s[i] <= 57); i++)
 	{
-			oint *= 10;
-			oint += (s[i] - 48);
+		oint *= 10;
+		oint += (s[i] - 48);
 	}
 
 	return (oint * sign);
@@ -76,7 +76,7 @@ void _print(char *c)
  *@argv: arg array
  * Return: Always 0.
  */
-int main(int __attribute__ ((unused)) argc, char *argv[])
+int main(int argc, char *argv[])
 {
 
 	if (argc != 3)
