@@ -48,16 +48,13 @@ void _print(char *c)
  * Return: multipled result
  */
 
-int num(char **av)
+unsigned long int num(char **av)
 {
-	int mul1, mul2;
+	unsigned long int mul1, mul2;
 
 	mul1 = atoi(av[1]);
 	mul2 = atoi(av[2]);
-	if (mul1 < 0)
-		mul1 *= -1;
-	if (mul2 < 0)
-		mul2 *= -1;
+
 	return (mul1 * mul2);
 }
 
