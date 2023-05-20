@@ -50,15 +50,14 @@ void _print(char *c)
 
 int num(char **av)
 {
-	unsigned long int mul1, mul2;
+	int mul1, mul2;
 
 	mul1 = atoi(av[1]);
 	mul2 = atoi(av[2]);
-	if (mul1 == 0 || mul2 == 0)
-	{
-		_print("Error \n");
-		exit(98);
-	}
+	if (mul1 < 0)
+		mul1 *= -1;
+	if (mul2 < 0)
+		mul2 *= -1;
 	return (mul1 * mul2);
 }
 
@@ -68,16 +67,16 @@ int num(char **av)
  *@av: arg array
  * Return: Always 0.
  */
-int main(int ac, char *av[])
+int main(int __attribute__ ((unused)) argc, char *argv[])
 {
 	unsigned long int res;
-
-	if (ac != 3)
+	
+	if (argc != 3)
 	{
 		_print("Error\n");
 		exit(98);
 	}
-	res = num(av);
+	res = num(argv);
 	printf("%lu\n", res);
 	return (0);
 }
