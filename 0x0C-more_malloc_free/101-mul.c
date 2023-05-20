@@ -5,8 +5,8 @@
 #include <limits.h>
 int _atoi(char *s)
 {
-        int length, i, digit, sign = 0, no;
-        unsigned int oint = 0;
+        int length, i, digit, sign = 0;
+        unsigned long int oint = 0, no;
         char prev;
 
         length = strlen(s);
