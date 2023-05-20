@@ -50,7 +50,7 @@ void _print(char *c)
 
 int num(char **av)
 {
-	int i, n = 0, mul1, mul2;
+	unsigned long int i, n = 0, mul1, mul2;
 
 	mul1 = atoi(av[1]);
 	mul2 = atoi(av[2]);
@@ -69,7 +69,7 @@ int num(char **av)
  */
 int main(int ac, char *av[])
 {
-	int res;
+	unsigned long int res;
 
 	if (ac != 3)
 	{
