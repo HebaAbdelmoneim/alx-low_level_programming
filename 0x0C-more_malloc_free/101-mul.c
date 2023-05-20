@@ -14,31 +14,24 @@
 
 int _atoi(char *s)
 {
-        int length, i, digit, sign = 0;
-        unsigned long int oint = 0, no;
-        char prev;
+	int sign = 1;
+	unsigned long int oint = 0, i, length;
 
-        length = strlen(s);
-        for (i = 0; i <= length; i++)
-        {
-                if (*s == 45)
-                        sign++;
-                if (*s >= 48 && *s <= 57)
-                {
-                        digit = *s - 48;
-                        oint = (oint * 10) + digit;
-                }
-                prev = *s;
-                s++;
-                if (!(*s >= 48 && *s <= 57) && (prev >= 48 && prev <= 57))
-                        break;
-        }
-        if (sign % 2 != 0)
-                no = -1 * oint;
-        else
-                no = oint;
-        return (no);
+	for (length = 0; !(s[length] >= 48 && s[length] <= 57); length++)
+	{
+		if (*s == 45)
+			sign *= -1;
+	}
+
+	for (i = length; (s[i] >= 48 && s[i] <= 57); i++)
+	{
+			oint *= 10;
+			oint += (s[i] - 48);
+	}
+
+	return (oint * sign);
 }
+
 /**
  * _print_int - writes integers
  * @i: The integers to print
