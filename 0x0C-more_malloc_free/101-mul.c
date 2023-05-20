@@ -5,6 +5,27 @@
 #include <limits.h>
 
 /**
+ * _print_int - writes integers
+ * @i: The integers to print
+ *
+ * Return: void
+ */
+void _print_int(int i)
+{
+	int d = 1, j, digit;
+
+	for (j = 0; i / d > 9; j++, d *= 10)
+		;
+	while (d >= 1)
+	{
+		digit = i / d;
+		_putchar(digit + 48);
+		i %= d;
+		d /= 10;
+	}
+}
+
+/**
  * _print - writes string
  * @c: The string to print
  *
@@ -56,7 +77,8 @@ int main(int ac, char *av[])
 		exit(98);
 	}
 	res = num(av);
-	printf("%i\n", res);
+	_print_int(res);
+	_putchar('\n');
 	return (0);
 }
 
