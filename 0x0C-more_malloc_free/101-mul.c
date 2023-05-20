@@ -50,15 +50,11 @@ void _print(char *c)
 
 int num(char **av)
 {
-	unsigned long int i, n = 0, mul1, mul2;
+	unsigned long int mul1, mul2;
 
 	mul1 = atoi(av[1]);
 	mul2 = atoi(av[2]);
-	for (i = mul2; i > 0; i--)
-	{
-		n += mul1;
-	}
-	return (n);
+	return (mul1 * mul2);
 }
 
 /**
