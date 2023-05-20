@@ -60,14 +60,14 @@ unsigned long int num(char **av)
 
 /**
  * main - check the code for ALX School students.
- *@ac: arg numbers
- *@av: arg array
+ *@argc: arg numbers
+ *@argv: arg array
  * Return: Always 0.
  */
 int main(int __attribute__ ((unused)) argc, char *argv[])
 {
 	unsigned long int res;
-	
+
 	if (argc != 3)
 	{
 		_print("Error\n");
