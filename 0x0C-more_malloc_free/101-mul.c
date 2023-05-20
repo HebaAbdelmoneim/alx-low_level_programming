@@ -3,33 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
-int _atoi(char *s)
-{
-        int length, i, digit, sign = 0;
-        unsigned long int oint = 0, no;
-        char prev;
 
-        length = strlen(s);
-        for (i = 0; i <= length; i++)
-        {
-                if (*s == 45)
-                        sign++;
-                if (*s >= 48 && *s <= 57)
-                {
-                        digit = *s - 48;
-                        oint = (oint * 10) + digit;
-                }
-                prev = *s;
-                s++;
-                if (!(*s >= 48 && *s <= 57) && (prev >= 48 && prev <= 57))
-                        break;
-        }
-        if (sign % 2 != 0)
-                no = -1 * oint;
-        else
-                no = oint;
-        return (no);
-}
 /**
  * _print_int - writes integers
  * @i: The integers to print
@@ -78,8 +52,8 @@ unsigned long int num(char **av)
 {
 	unsigned long int mul1, mul2;
 
-	mul1 = _atoi(av[1]);
-	mul2 = _atoi(av[2]);
+	mul1 = atoi(av[1]);
+	mul2 = atoi(av[2]);
 
 	return (mul1 * mul2);
 }
