@@ -4,6 +4,41 @@
 #include <string.h>
 #include <limits.h>
 
+
+/**
+ * _atoi - convert the numbers in string to integer
+ *@s: pointer to string
+ *
+ * Return: integer of the input char
+ */
+
+int _atoi(char *s)
+{
+        int length, i, digit, sign = 0;
+        unsigned long int oint = 0, no;
+        char prev;
+
+        length = strlen(s);
+        for (i = 0; i <= length; i++)
+        {
+                if (*s == 45)
+                        sign++;
+                if (*s >= 48 && *s <= 57)
+                {
+                        digit = *s - 48;
+                        oint = (oint * 10) + digit;
+                }
+                prev = *s;
+                s++;
+                if (!(*s >= 48 && *s <= 57) && (prev >= 48 && prev <= 57))
+                        break;
+        }
+        if (sign % 2 != 0)
+                no = -1 * oint;
+        else
+                no = oint;
+        return (no);
+}
 /**
  * _print_int - writes integers
  * @i: The integers to print
@@ -41,22 +76,6 @@ void _print(char *c)
 		_putchar(c[i]);
 	}
 }
-/**
- * num - multiple two numbers
- * @av: arg array
- *
- * Return: multipled result
- */
-
-unsigned long int num(char **av)
-{
-	unsigned long int mul1, mul2;
-
-	mul1 = atoi(av[1]);
-	mul2 = atoi(av[2]);
-
-	return (mul1 * mul2);
-}
 
 /**
  * main - check the code for ALX School students.
@@ -66,15 +85,14 @@ unsigned long int num(char **av)
  */
 int main(int __attribute__ ((unused)) argc, char *argv[])
 {
-	unsigned long int res;
 
 	if (argc != 3)
 	{
 		_print("Error\n");
 		exit(98);
 	}
-	res = num(argv);
-	printf("%lu\n", res);
+	_print_int(_atoi(argv[1]) * _atoi(argv[2]));
+	_putchar('\n');
 	return (0);
 }
 
