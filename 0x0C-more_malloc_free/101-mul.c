@@ -54,6 +54,11 @@ int num(char **av)
 
 	mul1 = atoi(av[1]);
 	mul2 = atoi(av[2]);
+	if (mul1 == 0 || mul2 == 0)
+	{
+		_print("Error \n");
+		exit(98);
+	}
 	return (mul1 * mul2);
 }
 
@@ -69,7 +74,7 @@ int main(int ac, char *av[])
 
 	if (ac != 3)
 	{
-		_print("Error ");
+		_print("Error\n");
 		exit(98);
 	}
 	res = num(av);
