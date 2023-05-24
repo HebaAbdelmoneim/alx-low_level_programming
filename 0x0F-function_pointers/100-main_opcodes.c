@@ -24,7 +24,7 @@ int main(int ac, char *av[])
 		exit(2);
 	}
 
-	while(nu--)
+	while (nu--)
 		printf("%02hhx ", *s++);
 	printf("\n");
 	return (0);
