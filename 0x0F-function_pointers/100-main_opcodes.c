@@ -24,10 +24,9 @@ int main(int ac, char *av[])
 		printf("Error\n");
 		exit(2);
 	}
+
 	while(nu--)
-	{
 		printf("%02hhx ", *s++);
-	}
 	printf("\n");
 	return (0);
 }
