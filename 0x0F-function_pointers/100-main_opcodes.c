@@ -1,7 +1,6 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "function_pointers.h"
 
 /**
  * main - check the code for ALX School students.
@@ -12,7 +11,7 @@
 int main(int ac, char *av[])
 {
 	char *s = (char *)main;
-	int nu, i;
+	int nu;
 
 	if (ac != 2)
 	{
@@ -25,9 +24,9 @@ int main(int ac, char *av[])
 		printf("Error\n");
 		exit(2);
 	}
-	for (i = nu; i > 0; i--)
+	while(nu--)
 	{
-		printf("%02hhx ", s[i]);
+		printf("%02hhx ", *s++);
 	}
 	printf("\n");
 	return (0);
