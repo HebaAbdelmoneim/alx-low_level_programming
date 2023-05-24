@@ -25,8 +25,7 @@ int main(int ac, char *av[])
 	}
 
 	while (nu--)
-		printf("%02hhx ", *s++);
-	printf("\n");
+		printf("%02hhx%s", *s++, nu ? " " : "\n");
 	return (0);
 }
 
