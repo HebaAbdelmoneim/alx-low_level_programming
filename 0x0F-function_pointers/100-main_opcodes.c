@@ -10,7 +10,7 @@
  */
 int main(int ac, char *av[])
 {
-	char *s = (char *)main;
+	int *s = (int *)main;
 	int nu, i;
 
 	if (ac != 2)
