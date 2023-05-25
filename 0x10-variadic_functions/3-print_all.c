@@ -3,51 +3,59 @@
 /**
  * print_char - print char
  * @arg: the arg to be printed
+ * @s: pointer to string
  *
  * Return: void
  */
-void print_char(va_list arg)
+void print_char(char *s, va_list arg)
 {
 	char c = va_arg(arg, int);
-	printf("%c", c);
+
+	printf("%s%c", s, c);
 }
 
 /**
  * print_int - print int
  * @arg: the arg to be printed
+ * @s: pointer to string
  *
  * Return: void
  */
-void print_int(va_list arg)
+void print_int(char *s, va_list arg)
 {
-        int in = va_arg(arg, int);
-        printf("%i", in);
+	int in = va_arg(arg, int);
+
+	printf("%s%i", s, in);
 }
 
 /**
  * print_float - print float
  * @arg: the arg to be printed
+ * @s: pointer to string
  *
  * Return: void
  */
-void print_float(va_list arg)
+void print_float(char *s, va_list arg)
 {
-        float fl = va_arg(arg, double);
-        printf("%f", fl);
+	float fl = va_arg(arg, double);
+
+	printf("%s%f", s, fl);
 }
 
 /**
  * print_str - print string
  * @arg: the arg to be printed
+ * @s: pointer to string
  *
  * Return: void
  */
-void print_str(va_list arg)
+void print_str(char *s, va_list arg)
 {
-        char *st = va_arg(arg, char *);
+	char *st = va_arg(arg, char *);
+
 	if (st == NULL)
 		printf("(nil)");
-        printf("%s", st);
+	printf("%s%s", s, st);
 }
 
 /**
@@ -60,17 +68,17 @@ void print_str(va_list arg)
 void print_all(const char * const format, ...)
 {
 	va_list pa;
-	unsigned int i = 0, j = 0, n;
+	unsigned int i = 0, j = 0;
 	char ch;
+	char *s = "";
 	f_type tys[] = {
-        {"c", print_char},
-        {"i", print_int},
-        {"f", print_float},
-        {"s", print_str},
-        {NULL, NULL}
-        };
+	{"c", print_char},
+	{"i", print_int},
+	{"f", print_float},
+	{"s", print_str},
+	{NULL, NULL}
+	};
 
-	n = strlen(format);
 	va_start(pa, format);
 	while (format != NULL && format[i])
 	{
@@ -79,11 +87,14 @@ void print_all(const char * const format, ...)
 		while (tys[j].t)
 		{
 			if (ch == tys[j].t[0])
-				tys[j].f(pa);
+			{
+				tys[j].f(s, pa);
+				s = ", ";
+			}
 			j++;
 		}
-		printf("%s", i < (n - 1) ? ", " : "\n");
 		i++;
 	}
+	printf("\n");
 	va_end(pa);
 }

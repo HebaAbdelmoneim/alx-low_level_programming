@@ -14,7 +14,7 @@
 typedef struct ty
 {
         char *t;
-        void (*f)(va_list);
+        void (*f)(char *, va_list);
 } f_type;
 
 int sum_them_all(const unsigned int n, ...);
