@@ -72,7 +72,7 @@ void print_all(const char * const format, ...)
 
 	n = strlen(format);
 	va_start(pa, format);
-	while (i < n)
+	while (format != NULL && format[i])
 	{
 		ch  = format[i];
 		j = 0;
