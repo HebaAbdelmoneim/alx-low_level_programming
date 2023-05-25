@@ -11,24 +11,27 @@ void print_all(const char * const format, ...)
 {
 	va_list pa;
 	unsigned int i = 0, n;
+	char ch;
 
 	n = strlen(format);
 	va_start(pa, format);
 
 	while (i < n)
 	{
-		if (format[i] == 'c')
+		ch  = format[i];
+		if (ch == 'c')
 			printf("%c", va_arg(pa, int));
-		else if (format[i] == 'i')
+		if (ch == 'i')
 			printf("%i", va_arg(pa, int));
-		else if (format[i] == 'f')
+
+		while (ch == 'f')
 			printf("%f", va_arg(pa, double));
-		else if (format[i] == 's')
-			printf("%s", va_arg(pa, char *));
-		else
-			printf("(nil)");
-		if (i < n - 1)
-			printf("%s", ", ");
+	/*	else if (format[i] == 's')
+	*		printf("%s", va_arg(pa, char *));
+	*	else
+	*		printf("(nil)");
+	*		*/
+		printf("%s", i < (n - 1) ? ", " : "\n");
 		i++;
 	}
 	va_end(pa);
