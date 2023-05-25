@@ -12,6 +12,7 @@ void print_all(const char * const format, ...)
 	va_list pa;
 	unsigned int i = 0, n;
 	char ch;
+	char *st;
 
 	n = strlen(format);
 	va_start(pa, format);
@@ -32,9 +33,12 @@ void print_all(const char * const format, ...)
 		}
 		if (ch == 's')
 		{
-			if (va_arg(pa,char *) == NULL)
+			st = va_arg(pa, char *);
+			if (st == NULL)
+			{
 				printf("(nil)");
-			printf("%s", va_arg(pa, char *));
+			}
+			printf("%s", st);
 		}
 		printf("%s", i < (n - 1) ? ", " : "\n");
 		i++;
