@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-	print_all("fceis", 3.5, 'b', 3, "stSchool");
+	print_all("fcis", 3.5, 'b', 3, "stSchool");
 	return (0);
 }

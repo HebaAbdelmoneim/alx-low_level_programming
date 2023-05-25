@@ -23,8 +23,11 @@ void print_all(const char * const format, ...)
 			printf(ch == 'c' ? "%c" : "%i", va_arg(pa, int));
 		if (ch == 'f')
 			printf("%f", va_arg(pa, double));
-		else if (ch == 's')
+		while (ch == 's')
+		{
 			printf("%s", va_arg(pa, char *));
+			break;
+		}
 	/*	else
 	*		printf("(nil)");
 	*		*/
@@ -32,5 +35,4 @@ void print_all(const char * const format, ...)
 		i++;
 	}
 	va_end(pa);
-	printf("\n");
 }
