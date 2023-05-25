@@ -19,15 +19,10 @@ void print_all(const char * const format, ...)
 	while (i < n)
 	{
 		ch  = format[i];
-		if (ch == 'c')
-			printf("%c", va_arg(pa, int));
-		if (ch == 'i')
-			printf("%i", va_arg(pa, int));
-
-		while (ch == 'f')
-			printf("%f", va_arg(pa, double));
-	/*	else if (format[i] == 's')
-	*		printf("%s", va_arg(pa, char *));
+		if (ch == 'c' || ch == 'i')
+			printf(ch == 'c' ? "%c" : "%i", va_arg(pa, int));
+		/*if (ch == 's' || ch =='f')
+		*	printf(ch == 'i' ? ("%i", va_arg(pa, int)) : "%f", va_arg(pa, double)));
 	*	else
 	*		printf("(nil)");
 	*		*/
