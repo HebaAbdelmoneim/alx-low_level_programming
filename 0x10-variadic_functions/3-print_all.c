@@ -53,9 +53,8 @@ void print_str(char *s, va_list arg)
 {
 	char *st = va_arg(arg, char *);
 
-	switch (st == NULL)
-		case 1:
-			st = "(nil)";
+	if (st == NULL)
+		st = "(nil)";
 	printf("%s%s", s, st);
 }
 
