@@ -21,9 +21,11 @@ void print_all(const char * const format, ...)
 		ch  = format[i];
 		if (ch == 'c' || ch == 'i')
 			printf(ch == 'c' ? "%c" : "%i", va_arg(pa, int));
-		/*if (ch == 's' || ch =='f')
-		*	printf(ch == 'i' ? ("%i", va_arg(pa, int)) : "%f", va_arg(pa, double)));
-	*	else
+		if (ch == 'f')
+			printf("%f", va_arg(pa, double));
+		else if (ch == 's')
+			printf("%s", va_arg(pa, char *));
+	/*	else
 	*		printf("(nil)");
 	*		*/
 		printf("%s", i < (n - 1) ? ", " : "\n");
