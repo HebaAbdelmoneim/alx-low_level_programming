@@ -10,22 +10,8 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	int check = 0;
-	unsigned long int cal;
-
-	if (index > 0)
-	{
-		cal = n >> index;
-		if (cal & 1)
-		{
-			check++;
-			return (1);;
-		}
-		else if (check)
-		{
-			return (0);
-		}
-	}
-	return (0);
+	if (index > 63)
+		return (-1);
+	return ((n >> index) & 1 ? 1 : 0);
 }
 
