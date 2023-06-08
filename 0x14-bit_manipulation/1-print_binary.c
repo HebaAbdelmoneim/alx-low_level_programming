@@ -9,18 +9,20 @@
  */
 void print_binary(unsigned long int n)
 {
-	int check = 0;
+	int check = 0, i = 63;
+	unsigned long int cal;
 
-	while (n > 0)
-	{ 
-		if (n & 1)
+	while (i >= 0)
+	{
+		cal = n >> i;
+		if (cal & 1)
 		{
 			_putchar('1');
 			check++;
 		}
-		else
+		else if (check)
 			_putchar('0');
-		n >>= 1;
+		i--;
 	}
 	if (!check)
 		_putchar('0');
