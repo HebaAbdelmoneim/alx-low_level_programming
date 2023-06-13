@@ -1,6 +1,25 @@
 #include "main.h"
 
 /**
+ * check_close - check close file descriptors
+ *
+ * @f: the file descriptor to be closed
+ *
+ * Return: void
+ */
+
+void check_close(int f)
+{
+	int cl;
+
+	cl = close(f);
+	if (cl == -1)
+	{
+		dprintf(2, "Error: Can't close fd %d\n", f);
+		exit(100);
+	}
+}
+/**
  * main - check the code
  *
  * @ac: var number
@@ -10,12 +29,12 @@
  */
 int main(int ac, char **av)
 {
-	int f1, f2, w, r, cl1, cl2;
+	int f1, f2, w, r;
 	char *buf;
 
 	if (ac != 3)
 	{
-		dprintf(2, "Usage: %s cp file_from file_to\n", av[0]);
+		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	if (av[1] == NULL)
@@ -40,17 +59,7 @@ int main(int ac, char **av)
 		exit(99);
 	}
 	free(buf);
-	cl1 = close(f1);
-	cl2 = close(f2);
-	if (cl1 == -1)
-	{
-		dprintf(2, "Error: Can't close fd %d\n", f1);
-		exit(100);
-	}
-	if (cl2 == -1)
-	{
-		dprintf(2, "Error: Can't close fd %d\n", f2);
-		exit(100);
-	}
+	check_close(f1);
+	check_close(f2);
 	return (0);
 }
