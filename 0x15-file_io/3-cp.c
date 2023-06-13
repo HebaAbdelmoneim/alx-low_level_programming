@@ -57,19 +57,15 @@ int main(int ac, char **av)
 		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	if (av[1] == NULL)
-	{
-		dprintf(2, "Error: Can't read from file %s\n", av[1]);
-		exit(98);
-	}
+	buf = creat_buf(av[2]);
 	f1 = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	f2 = open(av[1], O_RDONLY);
-	buf = creat_buf(av[2]);
 	r = read(f2, buf, 1024);
 	do {
 		if (f2 == -1 || r == -1)
 		{
 			dprintf(2, "Error: Can't read from file %s\n", av[1]);
+			free(buf);
 			exit (98);
 		}
 		w = write(f1, buf, r);
@@ -79,7 +75,7 @@ int main(int ac, char **av)
 			free(buf);
 			exit(99);
 		}
-		f2 = read(f1, buf, 1024);
+		r = read(f2, buf, 1024);
 		f1 = open(av[2], O_WRONLY | O_APPEND);
 	}while (r > 0);
 	free(buf);
