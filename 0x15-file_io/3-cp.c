@@ -58,7 +58,7 @@ int main(int ac, char **av)
 		exit(97);
 	}
 	buf = creat_buf(av[2]);
-	f1 = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	f1 = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	f2 = open(av[1], O_RDONLY);
 	r = read(f2, buf, 1024);
 	do {
