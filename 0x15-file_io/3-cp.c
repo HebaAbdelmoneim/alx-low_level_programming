@@ -3,13 +3,13 @@
 /**
  * creat_buf - creat buf of size 1024 byte
  *
- * @fname: the file name 
+ * @fname: the file name
  *
  * Return: pointer to string
  */
 char *creat_buf(char *fname)
 {
-	char * buf;
+	char *buf;
 
 	buf = malloc(sizeof(char) * 1024);
 	if (buf == NULL)
@@ -66,7 +66,7 @@ int main(int ac, char **av)
 		{
 			dprintf(2, "Error: Can't read from file %s\n", av[1]);
 			free(buf);
-			exit (98);
+			exit(98);
 		}
 		w = write(f1, buf, r);
 		if (f1 == -1 || w == -1)
@@ -77,7 +77,7 @@ int main(int ac, char **av)
 		}
 		r = read(f2, buf, 1024);
 		f1 = open(av[2], O_WRONLY | O_APPEND);
-	}while (r > 0);
+	} while (r > 0);
 	free(buf);
 	check_close(f1);
 	check_close(f2);
