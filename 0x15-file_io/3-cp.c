@@ -10,7 +10,7 @@
  */
 int main(int ac, char **av)
 {
-	int f1, f2, w, r;
+	int f1, f2, w, r, cl1, cl2;
 	char *buf;
 
 	if (ac != 3)
@@ -40,7 +40,17 @@ int main(int ac, char **av)
 		exit(99);
 	}
 	free(buf);
-	close(f1);
-	close(f2);
+	cl1 = close(f1);
+	cl2 = close(f2);
+	if (cl1 == -1)
+	{
+		dprintf(2, "Error: Can't close fd %d\n", f1);
+		exit(100);
+	}
+	if (cl2 == -1)
+	{
+		dprintf(2, "Error: Can't close fd %d\n", f2);
+		exit(100);
+	}
 	return (0);
 }
