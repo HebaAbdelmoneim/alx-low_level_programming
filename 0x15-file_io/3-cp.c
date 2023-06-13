@@ -1,6 +1,26 @@
 #include "main.h"
 
 /**
+ * creat_buf - creat buf of size 1024 byte
+ *
+ * @fname: the file name 
+ *
+ * Return: pointer to string
+ */
+char *creat_buf(char *fname)
+{
+	char * buf;
+
+	buf = malloc(sizeof(char) * 1024);
+	if (buf == NULL)
+	{
+		dprintf(2, "Error: Can't write to %s\n", fname);
+		exit(99);
+	}
+	return (buf);
+}
+
+/**
  * check_close - check close file descriptors
  *
  * @f: the file descriptor to be closed
@@ -42,22 +62,26 @@ int main(int ac, char **av)
 		dprintf(2, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
-	f1 = open(av[2], O_WRONLY | O_CREAT | O_APPEND | O_TRUNC, 0664);
+	f1 = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	f2 = open(av[1], O_RDONLY);
-	buf = malloc(sizeof(char) * 1024);
-	if (buf == NULL)
-	{
-		dprintf(2, "Error: Can't write to %s\n", av[2]);
-		exit(99);
-	}
+	buf = creat_buf(av[2]);
 	r = read(f2, buf, 1024);
-	w = write(f1, buf, r);
-	if (f1 == -1 || w == -1)
-	{
-		dprintf(2, "Error: Can't write to %s\n", av[2]);
-		free(buf);
-		exit(99);
-	}
+	do {
+		if (f2 == -1 || r == -1)
+		{
+			dprintf(2, "Error: Can't read from file %s\n", av[1]);
+			exit (98);
+		}
+		w = write(f1, buf, r);
+		if (f1 == -1 || w == -1)
+		{
+			dprintf(2, "Error: Can't write to %s\n", av[2]);
+			free(buf);
+			exit(99);
+		}
+		f2 = read(f1, buf, 1024);
+		f1 = open(av[2], O_WRONLY | O_APPEND);
+	}while (r > 0);
 	free(buf);
 	check_close(f1);
 	check_close(f2);
