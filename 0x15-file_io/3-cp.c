@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * creat_buf - creat buf of size 1024 byte
@@ -81,5 +83,5 @@ int main(int ac, char **av)
 	free(buf);
 	check_close(f2);
 	check_close(f1);
-	return (1);
+	return (0);
 }
