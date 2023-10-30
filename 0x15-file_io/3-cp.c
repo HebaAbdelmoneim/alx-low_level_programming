@@ -81,5 +81,5 @@ int main(int ac, char **av)
 	free(buf);
 	check_close(f2);
 	check_close(f1);
-	return (0);
+	return (1);
 }
