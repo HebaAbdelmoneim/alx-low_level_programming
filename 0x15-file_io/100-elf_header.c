@@ -10,30 +10,41 @@
 void print_os(Elf64_Ehdr hd)
 {
 	printf("  OS/ABI:                            ");
-	swtich(hd.e_ident[EI_OSABI])
+	switch (hd.e_ident[EI_OSABI])
 	{
 		case ELFOSABI_NONE:
-			printf("UNIX - System V"), break;
+			printf("UNIX - System V");
+			break;
 		case ELFOSABI_HPUX:
-			printf("UNIX - HP-UX"), break;
-		case ELFOSAI_NETBSD:
-			printf("UNIX - NetBSD"), break;
-		case ELFOSAI_LINUX:
-			printf("UNIX - Linux"), break;
+			printf("UNIX - HP-UX");
+			break;
+		case ELFOSABI_NETBSD:
+			printf("UNIX - NetBSD");
+			break;
+		case ELFOSABI_LINUX:
+			printf("UNIX - Linux");
+			break;
 		case ELFOSABI_SOLARIS:
-			printf("UNIX - Solaris"), break;
+			printf("UNIX - Solaris");
+			break;
 		case ELFOSABI_IRIX:
-			printf("UNIX - IRIX"), break;
+			printf("UNIX - IRIX");
+			break;
 		case ELFOSABI_AIX:
-			printf("UNIX - AIX"), break;
+			printf("UNIX - AIX");
+			break;
 		case ELFOSABI_FREEBSD:
-			printf("UNIX - FreeBSD"), break;
+			printf("UNIX - FreeBSD");
+			break;
 		case ELFOSABI_TRU64:
-			printf("UNIX - TRU64"), break;
+			printf("UNIX - TRU64");
+			break;
 		case ELFOSABI_ARM:
-			printf("ARM"), break;
+			printf("ARM");
+			break;
 		case ELFOSABI_STANDALONE:
-			printf("Standalone App"), break;
+			printf("Standalone App");
+			break;
 		default:
 			printf("<unknown: %x>", hd.e_ident[EI_OSABI]);
 	}
@@ -66,7 +77,7 @@ void print_tp(Elf64_Ehdr hd)
 	printf("  Type:                              ");
 	if (hd.e_ident[EI_DATA] == ELFDATA2MSB)
 		x = 1;
-	swtich(po[x])
+	switch (po[x])
 	{
 		case ET_NONE:
 			printf("NONE (None)");
@@ -102,26 +113,26 @@ void print_ent(Elf64_Ehdr hd)
 	unsigned char *po = (unsigned char *)&hd.e_entry;
 
 	printf("  Entry point address:               0x");
-	if (hd.e_entry[EI_DATA] != ELFDATA2MSB)
+	if (hd.e_ident[EI_DATA] != ELFDATA2MSB)
 	{
-		x = hd.e_entry[EI_CLASS] == ELFCLASS64 ? 7 : 3;
-		while (!po[i])
+		x = hd.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
+		while (!po[x])
 			x--;
 		printf("%x", po[x--]);
 		for (; x >= 0; x--)
 			printf("%02x", po[x]);
-		printf("\n";
+		printf("\n");
 	}
 	else
 	{
 		x = 0;
-		len = hd.e_entry[EI_CLASS] == ELFCLASS64 ? 7 : 3;
+		len = hd.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
 		while (!po[x])
 			x++;
 		printf("%x", po[x++]);
-		for (; x >= 0; x++)
+		for (; x <= len; x++)
 			printf("%02x", po[x]);
-		printf("\n";
+		printf("\n");
 	}
 }
 /**
@@ -141,7 +152,7 @@ int main(int ac, char **av)
 	if (ac != 2)
 		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n"), exit(98);
 	fl = open(av[1], O_RDONLY);
-	if (fd == -1)
+	if (fl == -1)
 		dprintf(STDERR_FILENO, "Can't open file: %s\n", av[1]), exit(98);
 	bi = read(fl, &hd, sizeof(hd));
 	if ((bi < 1) || (bi != sizeof(hd)))
@@ -160,6 +171,6 @@ int main(int ac, char **av)
 	print_tp(hd);
 	print_ent(hd);
 	if (close(fl))
-		dprintf(STDERR_FILENO, "Error closing file descriptor: %s\n", fl), exit(98);
+		dprintf(STDERR_FILENO, "Error closing file descriptor: %d\n", fl), exit(98);
 	return (EXIT_SUCCESS);
 }

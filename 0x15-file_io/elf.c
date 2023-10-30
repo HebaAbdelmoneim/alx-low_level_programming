@@ -27,7 +27,7 @@ void print_mag(Elf64_Ehdr hd)
 void print_cl(Elf64_Ehdr hd)
 {
 	printf("  Class:                             ");
-	swtich(hd.e_ident[EI_CLASS])
+	switch (hd.e_ident[EI_CLASS])
 	{
 		case ELFCLASS64:
 			printf("ELF64");
@@ -51,7 +51,7 @@ void print_cl(Elf64_Ehdr hd)
 void print_dt(Elf64_Ehdr hd)
 {
 	printf("  Data:                              ");
-	swtich(hd.e_ident[EI_DATA])
+	switch (hd.e_ident[EI_DATA])
 	{
 		case ELFDATA2MSB:
 			printf("2's complement, big endian");
@@ -76,7 +76,7 @@ void print_dt(Elf64_Ehdr hd)
 void print_vr(Elf64_Ehdr hd)
 {
 	printf("  Version:                           %d", hd.e_ident[EI_VERSION]);
-	swtich(hd.e_ident[EI_VERSION])
+	switch (hd.e_ident[EI_VERSION])
 	{
 	case EV_CURRENT:
 		printf(" (cuurent)");
