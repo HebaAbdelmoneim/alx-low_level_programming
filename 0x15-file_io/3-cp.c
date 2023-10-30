@@ -83,4 +83,3 @@ int main(int ac, char **av)
 	check_close(f1);
 	return (0);
 }
-
