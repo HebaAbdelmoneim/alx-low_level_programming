@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
  * creat_buf - creat buf of size 1024 byte
@@ -16,7 +14,7 @@ char *creat_buf(char *fname)
 	buf = malloc(sizeof(char) * 1024);
 	if (buf == NULL)
 	{
-		dprintf(2, "Error: Can't write to %s\n", fname);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fname);
 		exit(99);
 	}
 	return (buf);
@@ -37,7 +35,7 @@ void check_close(int f)
 	cl = close(f);
 	if (cl == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", f);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", f);
 		exit(100);
 	}
 }
@@ -56,7 +54,7 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	buf = creat_buf(av[2]);
@@ -66,14 +64,14 @@ int main(int ac, char **av)
 	do {
 		if (f2 == -1 || r == -1)
 		{
-			dprintf(2, "Error: Can't read from file %s\n", av[1]);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 			free(buf);
 			exit(98);
 		}
 		w = write(f1, buf, r);
 		if (f1 == -1 || w == -1)
 		{
-			dprintf(2, "Error: Can't write to %s\n", av[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			free(buf);
 			exit(99);
 		}
